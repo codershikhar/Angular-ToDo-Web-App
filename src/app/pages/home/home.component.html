@@ -1,0 +1,66 @@
+<!-- TODO REMINDER START -->
+<div class="heading-div">
+  <mat-divider class="divider-start"></mat-divider>
+  <span style="padding: 10px; width: 120px;">Reminders</span>
+  <mat-divider class="divider-end"></mat-divider>
+  <button mat-button matSuffix mat-icon-button aria-label="Add" (click)="showAddReminderPopUp()"
+    style="font-size: 20px;">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let reminder of reminders" style="margin: 10px;">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ reminder.title }}
+      </mat-panel-title>
+      <mat-panel-description style="flex: none;">
+        {{ reminder.dateTime | date:'MMM dd, yyyy hh:mm' }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{ reminder.description }}</p>
+    <mat-action-row>
+      <button mat-button matSuffix mat-icon-button aria-label="Delete" style="font-size: 20px;"
+        (click)="deleteReminder(reminder.id)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<!-- TODO REMINDER END -->
+
+
+<!-- TODO LIST START -->
+<div class="heading-div">
+  <mat-divider class="divider-start"></mat-divider>
+  <span style="padding: 10px; width: 120px;">ToDo List</span>
+  <mat-divider class="divider-end"></mat-divider>
+  <button mat-button matSuffix mat-icon-button aria-label="Add" (click)="showAddListPopUp()" style="font-size: 20px;">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<div class="list-container">
+  <mat-card *ngFor="let todoList of todoLists" class="list-card">
+    <mat-card-title>
+      {{ todoList.name }}
+      <mat-icon aria-hidden="false" aria-label="open_in_new icon" (click)="gotoListPage(todoList.id)">
+        open_in_new</mat-icon>
+    </mat-card-title>
+    <mat-card-content>
+      <div>
+        Total: {{ todoList.total }}
+      </div>
+      <div>
+        Completed: {{ todoList.completed }}
+      </div>
+      <mat-icon aria-hidden="false" aria-label="delete_outline icon" (click)="deleteTodoList(todoList.id)">
+        delete_outline</mat-icon>
+    </mat-card-content>
+  </mat-card>
+</div>
+<mat-paginator [length]="totalLists" [pageSize]="currentPageSize" [pageIndex]="currentPageNumber"
+  [pageSizeOptions]="[5, 10, 25, 100]" (page)="paginationToDoList($event)">
+</mat-paginator>
+<!-- TODO LIST END -->

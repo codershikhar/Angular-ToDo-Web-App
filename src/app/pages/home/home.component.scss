@@ -1,0 +1,59 @@
+.heading-div {
+  display: flex;
+  padding: 10px;
+}
+
+.divider-start {
+  width: 100px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.divider-end {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list-card {
+  margin: 10px;
+  width: 170px;
+
+  mat-card-title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  mat-card-content {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      margin-top: auto;
+    }
+  }
+}
+
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

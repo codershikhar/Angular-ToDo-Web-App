@@ -1,0 +1,24 @@
+<mat-form-field class="example-form-field">
+  <mat-label>Reminder Text</mat-label>
+  <input matInput type="text" [(ngModel)]="reminder.title" #title="ngModel" required>
+  <button mat-button *ngIf="reminder.title" matSuffix mat-icon-button aria-label="Clear" (click)="reminder.title=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<mat-form-field class="example-form-field">
+  <mat-label>Reminder Description</mat-label>
+  <textarea matInput type="text" [(ngModel)]="reminder.description" #description="ngModel" required></textarea>
+  <button mat-button *ngIf="reminder.description" matSuffix mat-icon-button aria-label="Clear"
+    (click)="reminder.description=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput type="datetime-local" [(ngModel)]="reminder.dateTime" placeholder="start date" #dateTime="ngModel"
+    required>
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="addReminder()"
+  [disabled]="!title.valid || !description.valid || !dateTime.valid">Primary</button>

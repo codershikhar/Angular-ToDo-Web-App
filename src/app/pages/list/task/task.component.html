@@ -1,0 +1,17 @@
+<button mat-button *ngIf="task.completed" matSuffix mat-icon-button aria-label="Add" style="font-size: 20px;"
+  (click)="toggleComplete()">
+  <mat-icon>close</mat-icon>
+</button>
+<button mat-button *ngIf="!task.completed" matSuffix mat-icon-button aria-label="Add" style="font-size: 20px;"
+  (click)="toggleComplete()">
+  <mat-icon>check</mat-icon>
+</button>
+
+<span [ngStyle]="{'text-decoration':task.completed ? 'line-through' : '' }">
+  {{task.task}}
+</span>
+
+<button class="delete-button" mat-button matSuffix mat-icon-button aria-label="Delete" style="font-size: 20px;"
+  (click)="deleteTask()">
+  <mat-icon>delete_outline</mat-icon>
+</button>

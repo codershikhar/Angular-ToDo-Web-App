@@ -1,0 +1,23 @@
+<div style="margin: 20px 20px 0px 20px;">
+  <h2><span [routerLink]="['']">Home</span> > List Name</h2>
+
+  <!-- New Task Input -->
+  <mat-form-field style="width: 100%;">
+    <mat-label>New Item</mat-label>
+    <input matInput type="text" [(ngModel)]="newTask.task">
+    <button mat-button *ngIf="newTask.task" matSuffix mat-icon-button aria-label="Add" (click)="addNew()"
+      style="font-size: 20px;">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-form-field>
+  <!-- New Task Input End -->
+
+  <!-- Task List -->
+  <mat-list>
+    <mat-list-item *ngFor="let task of tasks">
+      <app-task [task]="task" (statusChange)="fetchTasks()"></app-task>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+  <!-- Task End -->
+</div>
